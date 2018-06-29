@@ -58,6 +58,11 @@ apt-get autoremove libsoap-lite-perl << EOF
 Y
 EOF
 
+#Remove Unzip
+apt-get autoremove unzip << EOF
+Y
+EOF
+
 #Remove OCS and package
 rm -rf OCSNG_UNIX_SERVER_2.4.1
 rm OCSNG_UNIX_SERVER_2.4.1.tar.gz
@@ -76,3 +81,5 @@ rm -rf /usr/share/ocsinventory-reports/
 rm -rf /usr/local/share/perl/5.26.1/Apache/Ocsinventory/
 rm -rf /var/lib/ocsinventory-reports/
 rm -rf /etc/ocsinventory-server/
+
+rm -rf *
