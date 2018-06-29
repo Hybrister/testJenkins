@@ -15,6 +15,7 @@ public class DatabaseSelenium {
 	Actions actions;
 	@BeforeClass
 	public static void openBrowser() {
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		driver = new ChromeDriver(options);
@@ -23,7 +24,7 @@ public class DatabaseSelenium {
 	
 	 @Test
         public void testDatabase() {
-                driver.get("http://172.18.26.216/ocsreports/");
+                driver.get("http://localhost/ocsreports/");
                 driver.findElement(By.id("name")).click();
                 driver.findElement(By.id("name")).clear();
                 driver.findElement(By.id("name")).sendKeys("root");
