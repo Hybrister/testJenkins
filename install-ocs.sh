@@ -1,8 +1,9 @@
 #!/bin/bash
 
 #Update Upgrade
-apt-get update && apt-get upgrade
-
+apt-get update && apt-get upgrade << EOF
+Y
+EOF
 #
 
 #Install Apache
@@ -66,6 +67,11 @@ perl -MCPAN -e 'install Plack::Handler' << EOF
 enter
 EOF
 
+#Install Unzip
+apt-get install unzip << EOF
+Y
+EOF
+
 #Get the last OCSNG-UNIX_SERVER.tar.gz
 wget https://github.com/OCSInventory-NG/OCSInventory-ocsreports/releases/download/2.4.1/OCSNG_UNIX_SERVER_2.4.1.tar.gz
 
@@ -126,3 +132,9 @@ service mysql restart
 
 #Restart apache
 service apache2 restart
+
+#Get chromedriver
+wget https://chromedriver.storage.googleapis.com/2.40/chromedriver_linux64.zip
+
+#Extract into /usr/bin/
+unzip chromedriver_linux64.zip -d /usr/bin/
